@@ -8,6 +8,7 @@ var EventSchema = new Schema({
     EventDescription:  {type: String, required: true},
     EventLocation:  {type: String, required: true},
     EventParticipants:  {type: [Number], required: true},
+    EventAttendees: [{type: Schema.Types.ObjectId, ref: "employee"}],
     EventStartTime:  {type: String, required: true},
     EventEndTime:  {type: String, required: true},
     Manager: {type: String, required: true}

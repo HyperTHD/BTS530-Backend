@@ -58,7 +58,7 @@ router.post("/login", (req, res) => {
                     password: data.password
                 };
                 var token = jwt.sign(payload, jwtOptions.secretOrKey)
-                res.status(200).json({ "message": "Login was successful", token: token });
+                res.status(200).json({ "message": "Login was successful", token: token, isAdmin: data.isAdmin, isManager: data.isManager });
             })
             .catch(error => {
                 res.status(404).json({ "message": "Login was unsuccessful"})
