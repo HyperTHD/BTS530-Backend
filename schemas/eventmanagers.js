@@ -74,6 +74,7 @@ module.exports = function () {
       return new Promise((resolve, reject) => {
         EventSchema.find()
           .sort({ firstName: 'asc' })
+          .populate('EventAttendees')
           .exec((error, items) => {
             if (error) {
               // Query error
@@ -88,6 +89,7 @@ module.exports = function () {
     getEventsByID: function(termID) {
       return new Promise((resolve, reject) => {
           EventSchema.findById(termID)
+          .populate('EventAttendees')
           .exec((error, item) => {
             if (error) {
               return reject(error.message);
