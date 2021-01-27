@@ -7,7 +7,7 @@ var EventSchema = new Schema({
     EventDate:  {type: Date, required: true, unique: true},
     EventDescription:  {type: String, required: true},
     EventLocation:  {type: String, required: true},
-    EventParticipants:  {type: [Number], required: true},
+    EventParticipants:  {type: Number, required: true},
     EventAttendees: [{type: Schema.Types.ObjectId, ref: "employee"}],
     EventStartTime:  {type: String, required: true},
     EventEndTime:  {type: String, required: true},
