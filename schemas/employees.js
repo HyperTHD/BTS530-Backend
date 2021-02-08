@@ -1,6 +1,5 @@
 // Setup
 const mongoose = require('mongoose');
-const blogPostSchema = require('./blogposts');
 const Schema = mongoose.Schema;
 
 // Entity schema

@@ -16,4 +16,3 @@ var EventSchema = new Schema({
 
 // Make schema available to the application
 module.exports = mongoose.model("event", EventSchema, "Event")
-

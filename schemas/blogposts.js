@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let BlogPostSchema = new Schema({
-    blogID: { type: Number, unique: true },
+    author: { type: String, required: true },
     title: { type: String, required: true, unique: true },
-    description: String,
-    post: String,
-    date: { type: Date, required: true, default: Date.now().toLocaleString()}
+    description: { type: String, required: true },
+    post: { type: String, required: true },
+    date: { type: Date, required: true, default: Date.now().toLocaleString() }
 });
   
   // Make schema available to the application
