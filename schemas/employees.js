@@ -16,7 +16,8 @@ let EmployeeSchema = new Schema({
   DOB: Date,
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true, unique: true },
-  blogPosts: [{type: Schema.Types.ObjectId, ref: "blogpost"}]
+  blogPosts: [{type: Schema.Types.ObjectId, ref: "blogpost"}],
+  events: [{type: Schema.Types.ObjectId, ref: "events"}]
 });
 
 // Make schema available to the application
