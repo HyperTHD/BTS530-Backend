@@ -14,6 +14,8 @@ mongoose.set('useCreateIndex', true);
 
 // Data entities; the standard format is:
 const EmployeeSchema = require('./employees');
+const BlogPostSchema = require('./blogposts');
+const EventsSchema = require('./events');
 // ################################################################################
 // Define the functions that can be called by server.js
 
@@ -98,6 +100,8 @@ module.exports = function () {
       return new Promise((resolve, reject) => {
         EmployeeSchema.find()
           .sort({ firstName: 'asc' })
+          .populate('events')
+          .populate('blogPosts')
           .exec((error, items) => {
             if (error) {
               // Query error
@@ -113,6 +117,7 @@ module.exports = function () {
       return new Promise((resolve, reject) => {
           EmployeeSchema.findById(termID)
           .populate('events')
+          .populate('blogPosts')
           .exec((error, item) => {
             if (error) {
               return reject(error.message);
