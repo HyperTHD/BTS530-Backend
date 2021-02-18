@@ -112,6 +112,7 @@ module.exports = function () {
     getEmployeeByID: function(termID) {
       return new Promise((resolve, reject) => {
           EmployeeSchema.findById(termID)
+          .populate('events')
           .exec((error, item) => {
             if (error) {
               return reject(error.message);
