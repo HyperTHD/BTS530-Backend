@@ -5,7 +5,6 @@ require('dotenv').config()
 // ######################################################
 // Necessary requires
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const passport = require('passport');
@@ -14,13 +13,12 @@ const app = express();
 const employeeRoutes = require('./routes/routes')
 const eventRoutes = require("./routes/eventRoutes")
 const blogpostRoutes = require("./routes/blogpostRoutes");
-const blogposts = require('./schemas/blogposts');
 
 // ######################################################
 // Needed middlewares for parsing data and accepting connection requests from the backend
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
 // ######################################################
