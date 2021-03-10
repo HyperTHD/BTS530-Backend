@@ -7,7 +7,7 @@ let BlogPostSchema = new Schema({
     title: { type: String, required: true, unique: true },
     description: { type: String, required: true },
     post: { type: String, required: true },
-    date: { type: Date, required: true, default: Date.now().toLocaleString() }
+    date: { type: Date, required: true, default: Date.now() }
 });
   
   // Make schema available to the application
