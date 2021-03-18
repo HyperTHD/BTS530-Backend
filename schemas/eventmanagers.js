@@ -119,7 +119,7 @@ module.exports = function () {
     EventsEdit: function (newItem) {
       return new Promise(function (resolve, reject) {
 
-        EventSchema.findOneandUpdate(newItem._id, newItem, { new: true }, (error, item) => {
+        EventSchema.findByIdAndUpdate(newItem._id, newItem, { new: true }, (error, item) => {
           if (error) {
             // Cannot edit item
             return reject(error.message);
