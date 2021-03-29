@@ -49,6 +49,6 @@ employeeRoutes.Employee.connect().then(() => {
     });
 }).catch(error => {
     console.log(`Server could not be started`);
-    process.exit();
+    process.exit(1);
 })
 

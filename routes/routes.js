@@ -98,10 +98,9 @@ router.delete("/:id" , (req, res) => {
                 res.status(204).end();
             })
             .catch(error => {
-                res.status(500).json({ "message": "Resource not found" })
+                res.status(500).json({ "message": error.message })
             })
 })
-
 
 router.Employee = Employee;
 router.Strategy = strategy
