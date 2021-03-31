@@ -44,12 +44,38 @@ router.put("/:id", (req,res) => {
          })
 });
 
+
+// * Patch routes to update attending and invited arrays
 router.patch("/:id/update/:empID", getEvent, (req,res) => {
     try {
        res.event.EventAttendees.push(req.params.empID);
        res.event.save();
-       return res.status(200).json({ "UpdatedObject": res.event});
+       return res.status(200).json({ "message": "This employee is now attending this event" });
     } catch(error) {
+        res.status(500).json({ "message": error.message });
+    }
+})
+
+router.patch("/:id/add/:empID", getEvent, (req,res,) => {
+    try {
+        res.event.EventInvited.push(req.params.empID);
+        res.event.save();
+        return res.status(200).json({ "message": "This employee is now attending this event" });
+    } catch (error) {
+        res.status(500).json({ "message": error.message });
+    }
+})
+
+router.patch("/:id/remove/:empID", getEvent, (req,res,) => {
+    try {
+        const index = res.event.EventInvited.indexOf(req.params.empID);
+        if (index > -1) {
+            res.event.EventInvited.splice(index, 1);
+            res.event.save();
+            return res.status(200).json({ "message": "This employee is now attending this event" });
+        }
+        return res.status(404).json({ "message": "Resource not found"});
+    } catch (error) {
         res.status(500).json({ "message": error.message });
     }
 })

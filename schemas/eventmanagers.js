@@ -149,25 +149,5 @@ module.exports = function () {
         })
       })
     },
-
-    EventsAddToEventAttendees: function (id, empID)  {
-      try {
-        EventSchema.findByIdAndUpdate(id, 
-          {$push: {EventAttendees: empID}},
-          {$safe: true, upsert: true},
-          (err, doc) => {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log(doc);
-              return doc;
-            }
-          }
-          )
-      }
-      catch (error) {
-        console.log(error);
-      }
     }
   }
-}
